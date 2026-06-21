@@ -18,10 +18,12 @@ ShieldCheck,
 Search,
 ClipboardList,
 CheckCircle2,
-  BarChart3,
-  Megaphone,
-  User,
-  MoreHorizontal,
+BarChart3,
+Megaphone,
+User,
+ MoreHorizontal,
+Palette,
+Video,
 } from "lucide-react";
 
 export default function ServicesPage() {
@@ -529,7 +531,7 @@ return (
 </section>
 
   {/* WHY CHOOSE US */}
-  ```jsx id="j4xq8p"
+ 
 <section className="relative py-28 bg-white overflow-hidden">
 
   {/* Background Effects */}
@@ -697,62 +699,212 @@ return (
   </div>
 
 </section>
-```
 
 
   {/* CTA */}
-  <section className="py-24 bg-[#0D428E]">
-    <div className="max-w-5xl mx-auto px-6 text-center">
 
-      <h2 className="text-5xl font-bold text-white">
-        Ready To Build Something Amazing?
-      </h2>
+<section className="py-20 bg-white">
 
-      <p className="mt-6 text-blue-100 text-lg">
-        Let's transform your idea into a powerful digital product.
-      </p>
+  <div className="max-w-7xl mx-auto px-6">
 
-      <button className="mt-10 px-8 py-4 bg-white text-[#0D428E] rounded-xl font-semibold inline-flex items-center gap-2">
-        Get Started
-        <ArrowRight size={18} />
-      </button>
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6 }}
+      className="relative overflow-hidden rounded-[40px] bg-[#0D428E] px-10 py-14 lg:px-20 lg:py-16"
+    >
 
-    </div>
+      {/* Background Accent */}
+      <div className="absolute top-0 right-0 w-72 h-72 bg-white/5 rounded-full blur-3xl" />
+      <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-green-500/10 rounded-full blur-3xl" />
 
+      <div className="relative flex flex-col lg:flex-row items-center justify-between gap-10">
 
+        <div className="max-w-3xl">
 
-  </section>
+          <span className="inline-flex items-center px-4 py-2 rounded-full bg-white/10 border border-white/10 text-white/80 text-sm font-medium">
+            Digital Strategy • Design • Development
+          </span>
+
+          <h2 className="mt-6 text-4xl lg:text-5xl font-bold text-white leading-tight">
+            Ready to build your next digital product?
+          </h2>
+
+          <p className="mt-4 text-lg text-blue-100 leading-relaxed">
+            We help businesses transform ideas into scalable digital experiences through strategy, design, AI and development.
+          </p>
+
+        </div>
+
+        <div className="flex flex-col sm:flex-row gap-4">
+
+          <button className="group px-7 py-4 bg-white text-[#0D428E] rounded-2xl font-semibold flex items-center justify-center gap-2 hover:shadow-xl transition-all duration-300">
+            Start a Project
+
+            <ArrowRight
+              size={18}
+              className="group-hover:translate-x-1 transition-transform duration-300"
+            />
+          </button>
+
+          <button className="px-7 py-4 border border-white/20 text-white rounded-2xl font-semibold hover:bg-white/10 transition-all duration-300">
+            Book a Consultation
+          </button>
+
+        </div>
+
+      </div>
+
+    </motion.div>
+
+  </div>
+
+</section>
 
 {/* CLIENT LOGOS */}
 
-<section className="py-24 bg-white border-y border-slate-100">
+<section className="py-24 bg-white overflow-hidden">
+
   <div className="max-w-7xl mx-auto px-6">
 
-<div className="text-center mb-12">
-  <p className="text-slate-500 uppercase tracking-[4px] text-sm">
-    Trusted Technologies
-  </p>
-</div>
+    <div className="text-center mb-16">
 
-<div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8">
+      <span className="inline-flex items-center px-4 py-2 rounded-full border border-slate-200 bg-slate-50 text-slate-600 text-sm font-medium">
+        Digital Expertise
+      </span>
 
-  {[
-    "React",
-    "Node.js",
-    "MongoDB",
-    "AWS",
-    "Cloudinary",
-    "OpenAI",
-  ].map((item) => (
-    <div className="bg-slate-50 rounded-2xl py-6 text-center font-bold text-slate-700 border border-slate-200">
-      {item}
+      <h2 className="mt-5 text-5xl font-bold text-slate-900">
+        Everything Your Brand Needs
+      </h2>
+
+      <p className="mt-4 text-lg text-slate-500 max-w-2xl mx-auto">
+        Design, development, AI and marketing solutions under one roof.
+      </p>
+
     </div>
-  ))}
 
-</div>
+    <div className="grid lg:grid-cols-3 gap-7">
 
+      {[
+        {
+          icon: <Code2 size={24} />,
+          title: "Web Development",
+        },
+        {
+          icon: <Smartphone size={24} />,
+          title: "Mobile Apps",
+        },
+        {
+          icon: <Bot size={24} />,
+          title: "AI Solutions",
+        },
+        {
+          icon: <Palette size={24} />,
+          title: "UI / UX Design",
+        },
+        {
+          icon: <Video size={24} />,
+          title: "Video Editing",
+        },
+        {
+          icon: <Megaphone size={24} />,
+          title: "Digital Marketing",
+        },
+      ].map((item, index) => (
+
+        <motion.div
+          key={index}
+          initial={{
+            opacity: 0,
+            x: -50,
+          }}
+          whileInView={{
+            opacity: 1,
+            x: 0,
+          }}
+          viewport={{ once: true }}
+          transition={{
+            duration: 0.6,
+            delay: index * 0.12,
+          }}
+          whileHover={{
+            y: -8,
+          }}
+          className="group bg-white border border-slate-200 rounded-[32px] overflow-hidden hover:shadow-xl transition-all duration-300"
+        >
+
+          {/* Visual Area */}
+
+          <div className="h-40 bg-gradient-to-br from-slate-50 to-white border-b border-slate-100 p-5 relative overflow-hidden">
+
+            {/* Browser / Dashboard Style Visual */}
+
+            <div className="absolute inset-5 rounded-2xl border border-slate-200 bg-white shadow-sm">
+
+              <div className="h-10 border-b border-slate-100 flex items-center px-4 gap-2">
+
+                <div className="w-2.5 h-2.5 rounded-full bg-red-300" />
+                <div className="w-2.5 h-2.5 rounded-full bg-yellow-300" />
+                <div className="w-2.5 h-2.5 rounded-full bg-green-300" />
+
+              </div>
+
+              <div className="p-4">
+
+                <div className="h-3 bg-slate-100 rounded-full w-3/4" />
+
+                <div className="mt-3 flex gap-2">
+
+                  <div className="h-12 flex-1 rounded-lg bg-blue-50" />
+                  <div className="h-12 flex-1 rounded-lg bg-slate-100" />
+
+                </div>
+
+                <div className="mt-3 h-3 bg-slate-100 rounded-full w-full" />
+                <div className="mt-2 h-3 bg-slate-100 rounded-full w-4/5" />
+
+              </div>
+
+            </div>
+
+          </div>
+
+          {/* Content */}
+
+          <div className="p-7">
+
+            <div className="flex items-center justify-between">
+
+              <div className="w-12 h-12 rounded-xl bg-blue-50 text-[#0D428E] flex items-center justify-center">
+                {item.icon}
+              </div>
+
+              <ArrowRight
+                size={18}
+                className="text-slate-300 group-hover:text-[#0D428E] transition-all duration-300"
+              />
+
+            </div>
+
+            <h3 className="mt-5 text-xl font-bold text-slate-900">
+              {item.title}
+            </h3>
+
+            <p className="mt-3 text-slate-500">
+              Professional digital solutions tailored for modern businesses.
+            </p>
+
+          </div>
+
+        </motion.div>
+
+      ))}
+
+    </div>
 
   </div>
+
 </section>
 
 {/* COUNTERS */}
