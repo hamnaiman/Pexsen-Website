@@ -4,6 +4,7 @@ import pexsenLogo from "../assets/pexsenLogo.png";
 import { motion } from "framer-motion";
 import {
 ArrowRight,
+Play,
 Bot,
 Brain,
 Code2,
@@ -815,60 +816,134 @@ return (
 
         <motion.div
           key={index}
-          initial={{
-            opacity: 0,
-            x: -50,
-          }}
-          whileInView={{
-            opacity: 1,
-            x: 0,
-          }}
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{
             duration: 0.6,
             delay: index * 0.12,
           }}
-          whileHover={{
-            y: -8,
-          }}
+          whileHover={{ y: -8 }}
           className="group bg-white border border-slate-200 rounded-[32px] overflow-hidden hover:shadow-xl transition-all duration-300"
         >
 
           {/* Visual Area */}
 
-          <div className="h-40 bg-gradient-to-br from-slate-50 to-white border-b border-slate-100 p-5 relative overflow-hidden">
+          <div className="h-44 bg-gradient-to-br from-slate-50 to-white border-b border-slate-100 relative overflow-hidden flex items-center justify-center">
 
-            {/* Browser / Dashboard Style Visual */}
+  {/* Web Development */}
+  {index === 0 && (
+    <div className="w-[85%] h-32 rounded-2xl bg-white border border-slate-200 shadow-sm p-3">
 
-            <div className="absolute inset-5 rounded-2xl border border-slate-200 bg-white shadow-sm">
+      <div className="flex gap-2 mb-3">
+        <div className="w-2 h-2 rounded-full bg-red-400" />
+        <div className="w-2 h-2 rounded-full bg-yellow-400" />
+        <div className="w-2 h-2 rounded-full bg-green-400" />
+      </div>
 
-              <div className="h-10 border-b border-slate-100 flex items-center px-4 gap-2">
+      <div className="h-4 bg-gradient-to-r from-blue-500 to-cyan-400 rounded-full w-3/4 mb-3" />
 
-                <div className="w-2.5 h-2.5 rounded-full bg-red-300" />
-                <div className="w-2.5 h-2.5 rounded-full bg-yellow-300" />
-                <div className="w-2.5 h-2.5 rounded-full bg-green-300" />
+      <div className="grid grid-cols-2 gap-2">
+        <div className="h-12 rounded-xl bg-gradient-to-br from-blue-100 to-cyan-100" />
+        <div className="h-12 rounded-xl bg-gradient-to-br from-violet-100 to-purple-100" />
+      </div>
 
-              </div>
+    </div>
+  )}
 
-              <div className="p-4">
+  {/* Mobile Apps */}
+  {index === 1 && (
+    <div className="w-24 h-40 rounded-[28px] bg-white border-[6px] border-slate-200 shadow-lg overflow-hidden">
 
-                <div className="h-3 bg-slate-100 rounded-full w-3/4" />
+      <div className="h-6 bg-gradient-to-r from-blue-500 to-cyan-500" />
 
-                <div className="mt-3 flex gap-2">
+      <div className="p-3">
+        <div className="h-14 rounded-xl bg-gradient-to-br from-blue-100 to-cyan-100" />
+        <div className="mt-2 h-3 bg-slate-200 rounded-full" />
+        <div className="mt-2 h-3 bg-slate-200 rounded-full w-4/5" />
+        <div className="mt-2 h-8 rounded-lg bg-gradient-to-r from-violet-100 to-purple-100" />
+      </div>
 
-                  <div className="h-12 flex-1 rounded-lg bg-blue-50" />
-                  <div className="h-12 flex-1 rounded-lg bg-slate-100" />
+    </div>
+  )}
 
-                </div>
+  {/* AI Solutions */}
+  {index === 2 && (
+    <div className="relative w-36 h-36">
 
-                <div className="mt-3 h-3 bg-slate-100 rounded-full w-full" />
-                <div className="mt-2 h-3 bg-slate-100 rounded-full w-4/5" />
+      <motion.div
+        animate={{ scale: [1, 1.15, 1] }}
+        transition={{ duration: 2, repeat: Infinity }}
+        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-violet-500"
+      />
 
-              </div>
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-cyan-400" />
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-green-400" />
+      <div className="absolute left-0 top-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-orange-400" />
+      <div className="absolute right-0 top-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-pink-400" />
 
-            </div>
+      <svg className="absolute inset-0 w-full h-full">
+        <line x1="50%" y1="50%" x2="50%" y2="5%" stroke="#60A5FA" strokeWidth="2" />
+        <line x1="50%" y1="50%" x2="50%" y2="95%" stroke="#34D399" strokeWidth="2" />
+        <line x1="50%" y1="50%" x2="5%" y2="50%" stroke="#FB923C" strokeWidth="2" />
+        <line x1="50%" y1="50%" x2="95%" y2="50%" stroke="#F472B6" strokeWidth="2" />
+      </svg>
 
-          </div>
+    </div>
+  )}
+
+  {/* UI UX */}
+  {index === 3 && (
+    <div className="w-[85%] bg-white rounded-2xl border border-slate-200 p-4 shadow-sm">
+
+      <div className="h-14 rounded-xl bg-gradient-to-r from-pink-100 to-orange-100 mb-3" />
+
+      <div className="grid grid-cols-3 gap-2">
+        <div className="h-10 rounded-lg bg-blue-100" />
+        <div className="h-10 rounded-lg bg-purple-100" />
+        <div className="h-10 rounded-lg bg-green-100" />
+      </div>
+
+    </div>
+  )}
+
+  {/* Video Editing */}
+  {index === 4 && (
+    <div className="w-[85%]">
+
+      <div className="h-24 rounded-2xl bg-gradient-to-r from-slate-800 to-slate-700 flex items-center justify-center">
+
+        <motion.div
+          whileHover={{ scale: 1.1 }}
+          className="w-12 h-12 rounded-full bg-white flex items-center justify-center"
+        >
+          <Play size={18} className="text-[#0D428E]" />
+        </motion.div>
+
+      </div>
+
+      <div className="mt-3 flex gap-1">
+        <div className="h-2 flex-1 rounded-full bg-blue-500" />
+        <div className="h-2 flex-1 rounded-full bg-violet-500" />
+        <div className="h-2 flex-1 rounded-full bg-green-500" />
+      </div>
+
+    </div>
+  )}
+
+  {/* Marketing */}
+  {index === 5 && (
+    <div className="flex items-end gap-3 h-24">
+
+      <div className="w-8 h-10 rounded-t-lg bg-blue-300" />
+      <div className="w-8 h-16 rounded-t-lg bg-violet-400" />
+      <div className="w-8 h-24 rounded-t-lg bg-[#0D428E]" />
+      <div className="w-8 h-20 rounded-t-lg bg-green-500" />
+
+    </div>
+  )}
+
+</div>
 
           {/* Content */}
 
