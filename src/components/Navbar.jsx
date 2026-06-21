@@ -1,13 +1,18 @@
 import { useState, useEffect } from "react";
-import { Menu, X, ArrowRight } from "lucide-react";
+import {
+  Menu,
+  X,
+  ArrowRight,
+} from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import logo from "../assets/pexsenLogo.jpeg";
+import { Link } from "react-router-dom";
+import logo from "../assets/pexsenLogo.png";
 
 const navLinks = [
   { name: "Home", path: "/" },
   { name: "Services", path: "/services" },
   { name: "Portfolio", path: "/portfolio" },
-  { name: "About", path: "/about" },
+  { name: "About Us", path: "/about" },
   { name: "Contact", path: "/contact" },
 ];
 
@@ -16,108 +21,83 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 40);
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
 
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled
-            ? "bg-slate-950/80 backdrop-blur-xl border-b border-white/10 shadow-2xl"
-            : "bg-transparent"
+            ? "bg-white shadow-[0_8px_30px_rgba(0,0,0,0.06)] border-b border-gray-200"
+            : "bg-white border-b border-gray-100"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6 lg:px-10">
-          <div className="h-20 flex items-center justify-between">
-
+        <div className="max-w-7xl mx-auto px-5 lg:px-10">
+          <div className="h-16 flex items-center justify-between">
             {/* Logo */}
-            <motion.a
-              href="/"
-              whileHover={{ scale: 1.05 }}
-              className="relative"
+            <motion.div
+              whileHover={{
+                scale: 1.03,
+              }}
+              transition={{ duration: 0.2 }}
             >
-              <img
-                src={logo}
-                alt="PEXSEN"
-                className="h-12 object-contain"
-              />
-
-              <div className="absolute inset-0 bg-green-500/20 blur-xl rounded-full"></div>
-            </motion.a>
+              <Link to="/" className="flex items-center">
+                <img
+                  src={logo}
+                  alt="PEXSEN"
+                  className="h-16 lg:h-[72px] object-contain"
+                />
+              </Link>
+            </motion.div>
 
             {/* Desktop Menu */}
-            <div className="hidden md:flex items-center gap-8">
+            <div className="hidden md:flex items-center gap-10">
               {navLinks.map((item) => (
-                <motion.a
+                <motion.div
                   key={item.name}
-                  href={item.path}
                   whileHover={{ y: -2 }}
-                  className="group relative text-slate-300 font-medium transition"
                 >
-                  {item.name}
+                  <Link
+                    to={item.path}
+                    className="group relative font-medium text-gray-700 hover:text-[#0D428E] transition-all duration-300"
+                  >
+                    {item.name}
 
-                  <span
-                    className="
-                    absolute
-                    left-0
-                    -bottom-2
-                    h-[2px]
-                    w-0
-                    bg-gradient-to-r
-                    from-green-500
-                    via-blue-500
-                    to-red-500
-                    transition-all
-                    duration-300
-                    group-hover:w-full
-                  "
-                  />
-                </motion.a>
+                    <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-[#0D428E] rounded-full transition-all duration-300 group-hover:w-full" />
+                  </Link>
+                </motion.div>
               ))}
 
-              {/* CTA Button */}
+              {/* Premium Button */}
               <motion.button
                 whileHover={{
-                  scale: 1.05,
+                  scale: 1.04,
                 }}
                 whileTap={{
-                  scale: 0.95,
+                  scale: 0.96,
                 }}
-                className="
-                  group
-                  relative
-                  overflow-hidden
-                  rounded-full
-                  px-6
-                  py-3
-                  font-medium
-                  text-white
-                  bg-gradient-to-r
-                  from-green-500
-                  via-blue-500
-                  to-red-500
-                  shadow-lg
-                "
+                className="flex items-center gap-2 rounded-xl bg-[#0D428E] px-5 py-2.5 font-semibold text-white shadow-md hover:bg-[#08336F] transition-all duration-300"
               >
-                <span className="relative z-10 flex items-center gap-2">
-                  Get Started
-                  <ArrowRight size={18} />
-                </span>
-
-                <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition" />
+                Get Started
+                <ArrowRight size={18} />
               </motion.button>
             </div>
 
             {/* Mobile Toggle */}
             <button
               onClick={() => setOpen(!open)}
-              className="md:hidden text-white"
+              className="md:hidden text-gray-800"
             >
-              {open ? <X size={30} /> : <Menu size={30} />}
+              {open ? <X size={28} /> : <Menu size={28} />}
             </button>
           </div>
         </div>
@@ -132,74 +112,45 @@ export default function Navbar() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setOpen(false)}
-              className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40"
+              className="fixed inset-0 bg-black/40 z-40"
             />
 
             <motion.div
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
-              transition={{ duration: 0.35 }}
-              className="
-                fixed
-                right-0
-                top-0
-                h-screen
-                w-80
-                bg-slate-950
-                border-l
-                border-white/10
-                z-50
-                p-8
-              "
+              transition={{ duration: 0.3 }}
+              className="fixed top-0 right-0 h-screen w-[320px] bg-white z-50 p-6 shadow-[0_20px_80px_rgba(0,0,0,0.15)]"
             >
-              <div className="flex justify-between items-center mb-10">
+              <div className="flex items-center justify-between mb-10">
                 <img
                   src={logo}
                   alt="PEXSEN"
-                  className="h-10"
+                  className="h-14 object-contain"
                 />
 
                 <button
                   onClick={() => setOpen(false)}
-                  className="text-white"
+                  className="text-gray-800"
                 >
-                  <X />
+                  <X size={28} />
                 </button>
               </div>
 
-              <div className="space-y-6">
+              <div className="flex flex-col gap-6">
                 {navLinks.map((item) => (
-                  <motion.a
+                  <Link
                     key={item.name}
-                    href={item.path}
-                    whileHover={{ x: 8 }}
-                    className="
-                      block
-                      text-lg
-                      text-slate-300
-                      hover:text-white
-                    "
+                    to={item.path}
+                    onClick={() => setOpen(false)}
+                    className="text-lg font-medium text-gray-700 hover:text-[#0D428E] transition"
                   >
                     {item.name}
-                  </motion.a>
+                  </Link>
                 ))}
               </div>
 
-              <button
-                className="
-                  mt-10
-                  w-full
-                  rounded-xl
-                  py-3
-                  text-white
-                  font-medium
-                  bg-gradient-to-r
-                  from-green-500
-                  via-blue-500
-                  to-red-500
-                "
-              >
+              <button className="mt-10 w-full rounded-xl bg-[#0D428E] py-3 font-semibold text-white hover:bg-[#08336F] transition">
                 Get Started
               </button>
             </motion.div>
