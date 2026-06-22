@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { motion } from "framer-motion";
 import {
@@ -11,6 +12,7 @@ import {
   Video,
 } from "lucide-react";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 export default function Portfolio() {
   const [activeFilter, setActiveFilter] = useState("All");
@@ -852,6 +854,8 @@ PEXSEN
 </section>
 
       </main>
+
+      <Footer/>
     </>
   );
 }

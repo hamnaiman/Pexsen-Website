@@ -1,4 +1,5 @@
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 import {
   ArrowRight,
   Code2,
@@ -728,7 +729,12 @@ export default function AboutPage() {
 
   </div>
 </section>
+
+
     </div>
+
+  <Footer />
+
 </>
   );
 }
