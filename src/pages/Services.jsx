@@ -1,5 +1,5 @@
 import Navbar from "../components/Navbar";
-// import Footer from "../components/Footer";
+import Footer from "../components/Footer";
 import pexsenLogo from "../assets/pexsenLogo.png";
 import { motion } from "framer-motion";
 import {
@@ -1207,7 +1207,7 @@ return (
 </section>
 
 
-  {/* <Footer /> */}
+  <Footer />
 </>
 
 
